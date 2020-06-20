@@ -42,7 +42,8 @@ exports.login = asyncHandler(async (req, res, next) => {
   if (!isMatch) {
     return next(new ErrorResponse('Invalid credentials', 401));
   }
-
+  const latestLogInTime = Date.now();
+  await User.findOneAndUpdate({ email }, { latestLogInTime });
   sendTokenResponse(user, 200, res);
 });
 
