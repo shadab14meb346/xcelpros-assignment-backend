@@ -13,6 +13,7 @@ connectDB();
 
 // Route files
 const auth = require('./routes/auth');
+const users = require('./routes/users');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(cors());
 
 // Mount routers
 app.use('/auth', auth);
+app.use('/users', users);
 
 app.use(errorHandler);
 
