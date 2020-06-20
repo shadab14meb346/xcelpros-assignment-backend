@@ -31,7 +31,6 @@ const UserSchema = new mongoose.Schema({
   latestLogInTime: {
     type: Date,
     default: Date.now,
-    required: true,
   },
 });
 
