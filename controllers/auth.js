@@ -63,9 +63,13 @@ exports.getMe = asyncHandler(async (req, res, next) => {
 const sendTokenResponse = (user, statusCode, res) => {
   // Create token
   const token = user.getSignedJwtToken();
-
+  const { name, email } = user;
   res.status(statusCode).json({
     success: true,
     token,
+    user: {
+      name,
+      email,
+    },
   });
 };
